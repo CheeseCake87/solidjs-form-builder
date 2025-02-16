@@ -1,0 +1,7 @@
+.fb-text {
+    @apply text-xl pb-2;
+}
+
+.fb-header {
+    @apply text-3xl font-bold py-2;
+}

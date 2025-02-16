@@ -1,0 +1,95 @@
+.fb-form {
+    @apply flex flex-col gap-4;
+}
+
+.fb-form-building {
+    @apply flex flex-col gap-4 p-2 border;
+    border-color: var(--attention-default-bg-color);
+}
+
+.fb-label {
+    @apply block pb-1 pl-1 text-lg;
+}
+
+.fb-textarea {
+    @apply block px-4 py-2 border w-full
+    rounded-md shadow-sm appearance-none;
+    outline: none;
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    height: 400px;
+}
+
+.fb-input {
+    @apply block px-4 py-6 border
+    rounded-md shadow-sm appearance-none;
+    outline: none;
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    height: 100%;
+    max-height: 42px;
+}
+
+.fb-input:focus {
+    background-color: var(--input-bg-hover);
+    border-color: var(--input-border-focus);
+}
+
+.fb-input:hover {
+    background-color: var(--input-bg-hover);
+    border-color: var(--input-border-hover);
+}
+
+.fb-input-group {
+    @apply block;
+}
+
+.fb-inline-input {
+    @apply flex flex-row flex-wrap gap-4;
+}
+
+.fb-button {
+    @apply rounded-md justify-center
+    inline-flex gap-1 px-5 py-3 no-underline
+    cursor-pointer capitalize shadow items-center
+    select-none;
+}
+
+.fb-button-neutral {
+    background-color: var(--button-default-bg);
+    color: var(--button-default-text-color);
+    border: 1px solid var(--button-default-border-color);
+}
+
+.fb-button-neutral:hover, .a-btn:hover {
+    background-color: var(--button-default-bg-hover);
+    color: var(--button-default-text-color-hover);
+}
+
+.fb-button-confirm {
+    background-color: var(--button-confirm-bg);
+    color: var(--button-confirm-text-color);
+    border: 1px solid var(--button-confirm-border-color);
+}
+
+.fb-button-confirm:hover {
+    background-color: var(--button-confirm-bg-hover);
+    color: var(--button-confirm-text-color-hover);
+}
+
+.fb-button-confirm-selected {
+    background-color: var(--button-confirm-bg-hover);
+    color: var(--button-confirm-text-color-hover);
+    border: 1px solid var(--button-confirm-border-color);
+}
+
+.fb-select {
+    @apply block pl-3 pr-8 py-3 border cursor-pointer
+    rounded-md shadow-sm appearance-none;
+    border-color: var(--input-border);
+    background: url(
+    "data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>"
+    ) no-repeat;
+    background-position: calc(100% - 0.75rem) center !important;
+    background-color: var(--input-bg);
+}

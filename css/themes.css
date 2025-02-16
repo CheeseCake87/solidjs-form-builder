@@ -1,0 +1,118 @@
+[data-theme='smooth-dark'] {
+    --html-body-bg-color: #1e1e20;
+    --html-default-text-color: #d5d5e1;
+
+    /* SPINNER */
+    --spinners: #F4EEE0;
+    /* SPINNER */
+
+    /* MAIN MENU */
+
+    --main-menu-bg-color: #eaeaea;
+    --main-menu-icon-bg-color: #f8f8f8;
+    --main-menu-icon-text-color: #252525;
+    --main-menu-icon-border-color: rgba(255, 255, 255, 0);
+
+    --main-menu-icon-bg-color-hover: #ffffff;
+    --main-menu-icon-text-color-hover: #252525;
+    --main-menu-icon-border-color-hover: rgba(0, 50, 67, 0.3);
+
+    --main-menu-icon-bg-color-active: #fbfbfb;
+    --main-menu-icon-text-color-active: #252525;
+    --main-menu-icon-border-color-active: rgba(0, 50, 67, 0.3);
+
+    /* MAIN MENU */
+
+    /* TABLES */
+
+    --table-bg: #fbfbfb;
+    --table-row-hover: #ededed;
+
+    /* TABLES */
+
+    /* BUTTONS */
+    --button-default-bg: #e3e3e3;
+    --button-default-text-color: #171717;
+    --button-default-border-color: #b4b4b4;
+    --button-default-bg-hover: #dcdcdc;
+    --button-default-text-color-hover: #171717;
+
+    --button-confirm-bg: #324459;
+    --button-confirm-text-color: #ffffff;
+    --button-confirm-border-color: #3e536c;
+    --button-confirm-bg-hover: #3e536c;
+    --button-confirm-text-color-hover: #ffffff;
+    --button-confirm-text-color-dull: #eaeaea;
+
+    --button-warning-bg: #fae8c9;
+    --button-warning-text-color: #171717;
+    --button-warning-border-color: #ffbf2d;
+    --button-warning-bg-hover: #f1dbaf;
+    --button-warning-text-color-hover: #171717;
+
+    --button-danger-bg: #fcbbbb;
+    --button-danger-text-color: #171711717177;
+    --button-danger-border-color: #ff8484;
+    --button-danger-bg-hover: #f5a7a7;
+    --button-danger-text-color-hover: #171717;
+    /* BUTTONS */
+
+    /* H */
+    --h1-color: #004e6e;
+    --h2-color: #004e6e;
+    --h3-color: #004e6e;
+    --h4-color: #004e6e;
+    --h5-color: #004e6e;
+    --h6-color: #004e6e;
+    /* H */
+
+    /* A */
+    --a-color: #004e6e;
+    --a-hover-color: #06649b;
+    /* A */
+
+    /* ATTENTION */
+    --attention-default-bg-color: rgba(227, 227, 227, 0.1);
+    --attention-light-bg-color: rgba(227, 227, 227, 0.08);
+    --attention-lighter-bg-color: rgba(227, 227, 227, 0.02);
+    --attention-default-border-color: #b4b4b4;
+    --attention-confirm-bg-color: rgba(5, 151, 239, 0.4);
+    --attention-confirm-border-color: #004e6e;
+    --attention-warning-bg-color: rgba(250, 232, 201, 0.6);
+    --attention-warning-border-color: #ffbf2d;
+    --attention-danger-bg-color: rgba(149, 25, 25, 0.6);
+    --attention-danger-border-color: #6c0b0b;
+    /* ATTENTION */
+
+    /* ELEMENT BORDER COLORS */
+    --section-building: rgba(244, 25, 25, 0.25);
+    --input-group-building: rgba(25, 113, 244, 0.3);
+    --inline-inputs-building: rgba(25, 113, 244, 0.3);
+    --input-building: rgba(129, 129, 129, 0.5);
+    --button-building: rgba(129, 129, 129, 0.67);
+    --header-building: rgba(174, 147, 90, 0.5);
+    --text-building: rgba(174, 131, 90, 0.5);
+    /* ELEMENT BORDER COLORS */
+
+    /* FORM */
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-color-bg-hover: rgba(255, 255, 255, 0.1);
+    --input-bg-hover: rgba(255, 255, 255, 0.15);
+    --input-border: rgba(255, 255, 255, 0.18);
+    --input-border-hover: rgba(255, 255, 255, 0.30);
+    --input-border-focus: rgba(255, 255, 255, 0.30);
+    --input-required-bg: #ffe7e7;
+
+    --inline-label-bg: #efefef;
+    --inline-label-border: #dadada;
+
+    --form-action-bg: #dadada;
+    --form-action-bg-hover: #d3d3d3;
+    --form-action-text-color: var(--html-default-text-color);
+    /* FORM */
+
+    /* PILLS */
+    --pill-bg: #004e6e;
+    /* PILLS */
+
+}

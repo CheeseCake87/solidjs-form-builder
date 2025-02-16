@@ -1,0 +1,106 @@
+.fb-container {
+    @apply flex flex-row px-2;
+    width: 100%;
+}
+
+.fb-menu {
+    @apply flex flex-col p-4 gap-2 overflow-scroll;
+    height: 100vh;
+    width: 400px;
+}
+
+.fb-elements {
+    @apply p-4 overflow-scroll;
+    height: 100vh;
+    width: 100%;
+}
+
+.fb-section {
+    @apply p-4;
+}
+
+.fb-section-building {
+    @apply px-8 pb-8 pt-6 my-8 border-2 rounded-lg;
+    border-color: var(--section-building);
+}
+
+.fb-input-group-building {
+    @apply p-8 my-2 border-2 rounded-lg;
+    border-color: var(--input-group-building);
+}
+
+.fb-inline-inputs-building {
+    @apply p-8 my-2 border-2 rounded-lg;
+    border-color: var(--inline-inputs-building);
+}
+
+.fb-input-building {
+    @apply p-6 my-2 border-2 rounded-lg;
+    border-color: var(--input-building);
+}
+
+.fb-button-building {
+    @apply p-8 my-2 border-2 rounded-lg;
+    border-color: var(--button-building);
+}
+
+.fb-header-building {
+    @apply p-8 my-2 border-2 rounded-lg;
+    border-color: var(--header-building);
+}
+
+.fb-text-building {
+    @apply p-8 my-2 border-2 rounded-lg;
+    border-color: var(--text-building);
+}
+
+.fb-new-element {
+    @apply flex flex-row justify-center items-center
+    gap-2 p-4 mt-4 rounded-md shadow-md w-full;
+    background: var(--attention-lighter-bg-color);
+}
+
+.fb-icon {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-light-bg-color);
+}
+
+.fb-icon-no-click {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-light-bg-color);
+}
+
+.fb-icon:hover {
+    @apply cursor-pointer;
+    background: var(--attention-default-bg-color);
+}
+
+.fb-icon-danger {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-danger-bg-color);
+}
+
+.fb-icon-danger-no-click {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-light-bg-color);
+}
+
+.fb-icon-danger:hover {
+    @apply cursor-pointer;
+    background: var(--attention-danger-border-color);
+}
+
+.fb-icon-good {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-confirm-bg-color);
+}
+
+.fb-icon-good-no-click {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-confirm-bg-color);
+}
+
+.fb-icon-good:hover {
+    @apply cursor-pointer;
+    background: var(--attention-confirm-border-color);
+}
