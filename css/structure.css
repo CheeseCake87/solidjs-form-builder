@@ -4,15 +4,29 @@
 }
 
 .fb-menu {
-    @apply flex flex-col p-4 gap-2 overflow-scroll;
+    @apply flex flex-col p-4 gap-2 overflow-y-auto;
     height: 100vh;
     width: 400px;
 }
 
+.fb-section-nav {
+    @apply flex flex-row flex-wrap gap-2;
+}
+
 .fb-elements {
-    @apply p-4 overflow-scroll;
+    @apply p-4 overflow-y-auto;
     height: 100vh;
     width: 100%;
+}
+
+.fb-edit-section {
+    @apply flex flex-col gap-4;
+}
+
+.fb-edit-section input,
+.fb-edit-section select,
+.fb-edit-section textarea {
+    @apply w-full;
 }
 
 .fb-section {
@@ -24,14 +38,26 @@
     border-color: var(--section-building);
 }
 
-.fb-input-group-building {
-    @apply p-8 my-2 border-2 rounded-lg;
-    border-color: var(--input-group-building);
+.fb-group {
+    @apply mb-8;
 }
 
-.fb-inline-inputs-building {
+.fb-group-building {
     @apply p-8 my-2 border-2 rounded-lg;
-    border-color: var(--inline-inputs-building);
+    border-color: var(--group-building);
+}
+
+.fb-group-column {
+    @apply flex flex-col gap-4;
+}
+
+.fb-group-row {
+    @apply flex flex-row flex-wrap gap-4;
+}
+
+.fb-inline-group-building {
+    @apply p-8 my-2 border-2 rounded-lg;
+    border-color: var(--inline-group-building);
 }
 
 .fb-input-building {
@@ -63,6 +89,12 @@
 .fb-icon {
     @apply p-3 rounded-md shadow-md;
     background: var(--attention-light-bg-color);
+}
+
+.fb-icon-disabled {
+    @apply p-3 rounded-md shadow-md;
+    background: var(--attention-light-bg-color);
+    opacity: 0.6;
 }
 
 .fb-icon-no-click {

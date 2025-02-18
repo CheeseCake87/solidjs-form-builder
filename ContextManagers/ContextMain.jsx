@@ -16,8 +16,7 @@ export function MainContextProvider() {
 
     const parentElements = [
         'Section',
-        'InputGroup',
-        'InlineInputGroup'
+        'Group',
     ]
 
     const [activeSection, setActiveSection] = createSignal(null)
@@ -30,19 +29,13 @@ export function MainContextProvider() {
             "order": null,
             "label": "Section",
         },
-        "Input Group": {
-            "element": "InputGroup",
+        "Group": {
+            "element": "Group",
             "id": null,
             "parent": null,
             "order": null,
-            "label": "Input Group",
-        },
-        "Inline Input Group": {
-            "element": "InlineInputGroup",
-            "id": null,
-            "parent": null,
-            "order": null,
-            "label": "Inline Input Group",
+            "label": "Group",
+            "style": "column"
         },
         "Input Text": {
             "element": "InputText",
@@ -72,8 +65,8 @@ export function MainContextProvider() {
                 "number_of_dependents",
             ]
         },
-        "Button To Section": {
-            "element": "ButtonToSection",
+        "Button Goto Section": {
+            "element": "ButtonGotoSection",
             "id": null,
             "parent": null,
             "order": null,
@@ -85,6 +78,8 @@ export function MainContextProvider() {
 
     const [editElement, setEditElement] = createSignal({element: null})
     const [addElementTo, setAddElementTo] = createSignal(null)
+
+    const [sections, setSections] = createSignal()
 
     function updateValue(id, value) {
         let copy = {...elements()}
@@ -144,6 +139,9 @@ export function MainContextProvider() {
             }
         }
         setElements(copy)
+        if (id === activeSection()) {
+            setActiveSection(1)
+        }
     }
 
     function addSection() {
@@ -199,6 +197,14 @@ export function MainContextProvider() {
         }
     })
 
+    createEffect(() => {
+        setSections(
+            Object.values(elements())
+                .filter(a => a.parent === 0)
+                .sort((a, b) => a.order - b.order)
+        )
+    })
+
     return (
         <ContextMain.Provider value={
             {
@@ -213,6 +219,8 @@ export function MainContextProvider() {
                 setEditElement: setEditElement,
                 elements: elements,
                 setElements: setElements,
+                sections: sections,
+                setSections: setSections,
                 building: building,
                 setBuilding: setBuilding,
                 activeSection: activeSection,

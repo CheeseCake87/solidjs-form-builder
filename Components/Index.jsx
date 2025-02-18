@@ -20,7 +20,6 @@ export default function Index() {
                     onClick={() => ctxMain.setBuilding(false)}
                 >
                     View Mode
-                    <External size={14}/>
                 </button>
 
                 <button
@@ -28,7 +27,6 @@ export default function Index() {
                     onClick={() => ctxMain.setBuilding(true)}
                 >
                     Build Mode
-                    <External size={14}/>
                 </button>
 
                 <hr className={'my-2 py-2'}/>

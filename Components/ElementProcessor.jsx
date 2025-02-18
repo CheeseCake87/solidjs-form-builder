@@ -6,25 +6,11 @@ import Add from "./Icons/Add";
 export function ElementProcessor() {
     const ctxMain = useContext(ContextMain)
 
-    const [sections, setSections] = createSignal(
-        Object.values(ctxMain.elements())
-            .filter(a => a.parent === 0)
-            .sort((a, b) => a.order - b.order)
-    )
-
-    createEffect(() => {
-        setSections(
-            Object.values(ctxMain.elements())
-                .filter(a => a.parent === 0)
-                .sort((a, b) => a.order - b.order)
-        )
-    })
-
     return <>
 
         <Show when={ctxMain.building()}>
-            <div className={'fb-inline-input'}>
-                <For each={sections()}>
+            <div className={'fb-section-nav'}>
+                <For each={ctxMain.sections()}>
                     {(element, index) =>
                         <button
                             className={
@@ -33,7 +19,7 @@ export function ElementProcessor() {
                                     : 'fb-button-confirm'}`
                             }
                             onClick={() => ctxMain.setActiveSection(element.id)}>
-                            {element.label}
+                            [{element.id}] {element.label}
                         </button>
                     }
                 </For>
@@ -49,7 +35,7 @@ export function ElementProcessor() {
         {/* Loop through each available element, order, and
         only show those that have a parent value of 0 */}
 
-        <For each={sections()}>
+        <For each={ctxMain.sections()}>
             {(element, _) => {
                 if (!ctxMain.activeSection()) {
                     ctxMain.setActiveSection(element.id)

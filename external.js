@@ -26,16 +26,18 @@ export const fMap = {
         "order": 2,
     },
     6: {
-        "element": "InputGroup",
+        "element": "Group",
         "id": 6,
         "parent": 5,
-        "order": 1
+        "order": 1,
+        "style": "column",
     },
     7: {
-        "element": "InlineInputGroup",
+        "element": "Group",
         "id": 7,
         "parent": 6,
         "order": 1,
+        "style": "row",
     },
     8: {
         "element": "InputText",
@@ -63,11 +65,12 @@ export const fMap = {
         "type": "text"
     },
     11: {
-        "element": "ButtonToSection",
+        "element": "ButtonGotoSection",
         "id": 11,
         "parent": 6,
         "order": 3,
-        "text": "Button"
+        "section": 1,
+        "label": "Button"
     }
 }
 
@@ -102,18 +105,20 @@ export const fArray = [
         "label": "Section",
     },
     {
-        "element": "InputGroup",
+        "element": "Group",
         "id": 6,
         "parent": 5,
         "order": 1,
-        "label": "Input Group",
+        "label": "Group",
+        "style": "column",
     },
     {
-        "element": "InlineInputGroup",
+        "element": "Group",
         "id": 7,
-        "parent": 6,
+        "parent": 5,
         "order": 1,
-        "label": "Inline Input Group",
+        "label": "Inline Group",
+        "style": "row",
     },
     {
         "element": "InputText",
@@ -136,15 +141,16 @@ export const fArray = [
         "element": "InputText",
         "id": 10,
         "parent": 6,
-        "order": 2,
+        "order": 1,
         "label": "Label",
         "type": "text"
     },
     {
-        "element": "ButtonToSection",
+        "element": "ButtonGotoSection",
         "id": 11,
         "parent": 6,
-        "order": 3,
+        "order": 2,
+        "goto_section": 1,
         "label": "Button"
     }
 ]

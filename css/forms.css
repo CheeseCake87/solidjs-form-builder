@@ -40,14 +40,6 @@
     border-color: var(--input-border-hover);
 }
 
-.fb-input-group {
-    @apply block;
-}
-
-.fb-inline-input {
-    @apply flex flex-row flex-wrap gap-4;
-}
-
 .fb-button {
     @apply rounded-md justify-center
     inline-flex gap-1 px-5 py-3 no-underline
@@ -81,6 +73,23 @@
     background-color: var(--button-confirm-bg-hover);
     color: var(--button-confirm-text-color-hover);
     border: 1px solid var(--button-confirm-border-color);
+}
+
+.fb-button-danger {
+    background-color: var(--button-danger-bg);
+    color: var(--button-danger-text-color);
+    border: 1px solid var(--button-danger-border-color);
+}
+
+.fb-button-danger:hover {
+    background-color: var(--button-danger-bg-hover);
+    color: var(--button-danger-text-color-hover);
+}
+
+.fb-button-danger-selected {
+    background-color: var(--button-danger-bg-hover);
+    color: var(--button-danger-text-color-hover);
+    border: 1px solid var(--button-danger-border-color);
 }
 
 .fb-select {

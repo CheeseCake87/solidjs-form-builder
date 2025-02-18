@@ -12,7 +12,7 @@ export function ElementAdd() {
                 <div className={'py-2'}>
                     <p className={'text-xs'}>Add to</p>
                     <p className={'text-lg'}>
-                        {ctxMain.elements()[ctxMain.addElementTo()].element} ({ctxMain.addElementTo()})
+                        {ctxMain.elements()[ctxMain.addElementTo()].element}
                     </p>
                 </div>
                 <div className={'flex flex-col gap-1 w-full'}>

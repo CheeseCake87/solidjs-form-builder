@@ -50,11 +50,11 @@
     --button-warning-bg-hover: #f1dbaf;
     --button-warning-text-color-hover: #171717;
 
-    --button-danger-bg: #fcbbbb;
-    --button-danger-text-color: #171711717177;
-    --button-danger-border-color: #ff8484;
-    --button-danger-bg-hover: #f5a7a7;
-    --button-danger-text-color-hover: #171717;
+    --button-danger-bg: rgba(149, 25, 25, 0.6);
+    --button-danger-text-color: #ffffff;
+    --button-danger-border-color: #6c0b0b;
+    --button-danger-bg-hover: rgba(149, 25, 25, 0.8);
+    --button-danger-text-color-hover: #ffffff;
     /* BUTTONS */
 
     /* H */
@@ -86,8 +86,8 @@
 
     /* ELEMENT BORDER COLORS */
     --section-building: rgba(244, 25, 25, 0.25);
-    --input-group-building: rgba(25, 113, 244, 0.3);
-    --inline-inputs-building: rgba(25, 113, 244, 0.3);
+    --group-building: rgba(25, 113, 244, 0.3);
+    --inline-group-building: rgba(25, 113, 244, 0.3);
     --input-building: rgba(129, 129, 129, 0.5);
     --button-building: rgba(129, 129, 129, 0.67);
     --header-building: rgba(174, 147, 90, 0.5);

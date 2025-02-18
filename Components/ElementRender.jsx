@@ -12,8 +12,8 @@ function ElementMenu(props) {
 
     return <div className={'flex gap-1 pb-4 w-full'}>
 
-        <span className={'fb-icon-no-click text-xs'}>
-            {props.element}
+        <span className={'fb-icon-no-click text-xs flex align-middle gap-1'}>
+            <small>[{props.attrs.id}]</small> {props.element}
         </span>
 
         {/* Edit */}
@@ -28,31 +28,33 @@ function ElementMenu(props) {
 
         {/* Move Parent */}
 
-        <span
-            className={'fb-icon'}
-            onClick={() => ctxMain.switchOrder(props.attrs.id, 'parent')}
-        ><Parent size={14}/></span>
+        {/*<span*/}
+        {/*    className={'fb-icon'}*/}
+        {/*    onClick={() => ctxMain.switchOrder(props.attrs.id, 'parent')}*/}
+        {/*><Parent size={14}/></span>*/}
 
-        {/* Move Up */}
+        <Show when={props.attrs.element !== 'Section'}>
 
-        <span
-            className={'fb-icon'}
-            onClick={() => ctxMain.switchOrder(props.attrs.id, 'up')}
-        ><Up size={14}/></span>
+            {/* Move Up */}
 
-        {/* Move Down */}
+            <span
+                className={props.attrs.order < 2 ? 'fb-icon-disabled' : 'fb-icon'}
+                onClick={() => {
+                    if (props.attrs.order < 2) {
+                        return null
+                    }
+                    ctxMain.switchOrder(props.attrs.id, 'up')
+                }}
+            ><Up size={14}/></span>
 
-        <span
-            className={'fb-icon'}
-            onClick={() => ctxMain.switchOrder(props.attrs.id, 'down')}
-        ><Down size={14}/></span>
+            {/* Move Down */}
 
-        {/* Delete */}
+            <span
+                className={'fb-icon'}
+                onClick={() => ctxMain.switchOrder(props.attrs.id, 'down')}
+            ><Down size={14}/></span>
 
-        <span
-            className={'fb-icon-danger'}
-            onClick={() => ctxMain.deleteElement(props.attrs.id)}
-        ><Delete size={14}/></span>
+        </Show>
 
         {/* Add */}
 
@@ -93,29 +95,38 @@ export function Section(props) {
     )
 }
 
-export function InputGroup(props) {
+export function Group(props) {
 
     const ctxMain = useContext(ContextMain)
 
     return (
-        <section className={ctxMain.building() ? 'fb-input-group-building' : 'fb-form'}>
+        <section className={
+            ctxMain.building()
+                ? 'fb-group-building'
+                : 'fb-group'
+        }>
             <Show when={ctxMain.building()}>
-                <ElementMenu element={'Input Group'} attrs={props.attrs}/>
+                <ElementMenu element={'Group'} attrs={props.attrs}/>
             </Show>
-            <For each={
-                Object.values(ctxMain.elements())
-                    .filter(a => a.parent === props.attrs.id)
-                    .sort((a, b) => a.order - b.order)
+            <div className={
+                props.attrs.style === 'column' ?
+                    'fb-group-column' : 'fb-group-row'
             }>
-                {
-                    (element, _) => <ElementRender attrs={element}/>
-                }
-            </For>
+                <For each={
+                    Object.values(ctxMain.elements())
+                        .filter(a => a.parent === props.attrs.id)
+                        .sort((a, b) => a.order - b.order)
+                }>
+                    {
+                        (element, _) => <ElementRender attrs={element}/>
+                    }
+                </For>
+            </div>
         </section>
     )
 }
 
-export function InlineInputGroup(props) {
+export function InlineGroup(props) {
 
     const ctxMain = useContext(ContextMain)
 
@@ -131,7 +142,7 @@ export function InlineInputGroup(props) {
 
     return (
         <Show when={ctxMain.building()} fallback={
-            <div className={'fb-inline-input'}>
+            <div className={'fb-inline-group'}>
                 <For each={childElements()}>
                     {
                         (element, _) => <ElementRender attrs={element}/>
@@ -139,11 +150,11 @@ export function InlineInputGroup(props) {
                 </For>
             </div>
         }>
-            <section className={'fb-inline-inputs-building'}>
+            <section className={'fb-inline-group-building'}>
                 <div className={'flex flex-row gap-1 pb-2'}>
-                    <ElementMenu element={'Inline Inputs'} attrs={props.attrs}/>
+                    <ElementMenu element={'Inline Group'} attrs={props.attrs}/>
                 </div>
-                <div className={'fb-inline-input'}>
+                <div className={'fb-inline-group'}>
                     <For each={childElements()}>
                         {
                             (element, _) => <ElementRender attrs={element}/>
@@ -161,7 +172,7 @@ export function Header(props) {
 
     return (
         <Show when={ctxMain.building()} fallback={
-            <div className={'fb-inline-input'}>
+            <div className={'fb-inline-group'}>
                 <h1 className={'fb-header'}>{props.attrs.text}</h1>
             </div>
         }>
@@ -181,7 +192,7 @@ export function Text(props) {
 
     return (
         <Show when={ctxMain.building()} fallback={
-            <div className={'fb-inline-input'}>
+            <div className={'fb-inline-group'}>
                 <p className={'fb-text'}>{props.attrs.text}</p>
             </div>
         }>
@@ -195,7 +206,7 @@ export function Text(props) {
     )
 }
 
-export function ButtonToSection(props) {
+export function ButtonGotoSection(props) {
 
     const ctxMain = useContext(ContextMain)
 
@@ -205,7 +216,7 @@ export function ButtonToSection(props) {
                 <button
                     className={'fb-button fb-button-confirm'}
                     onClick={() => {
-                        ctxMain.setActiveSection(props.attrs.section)
+                        ctxMain.setActiveSection(props.attrs.goto_section)
                     }}
                 >
                     {props.attrs.label}
@@ -214,14 +225,16 @@ export function ButtonToSection(props) {
         }>
             <section className={'fb-button-building'}>
                 <div className={'flex flex-row gap-1 pb-2'}>
-                    <ElementMenu element={'Button To Section'} attrs={props.attrs}/>
+                    <ElementMenu element={'Button Goto Section'} attrs={props.attrs}/>
                 </div>
                 <div>
                     <button
                         className={'fb-button fb-button-confirm'}
-                        onClick={() => console.log(ctxMain.elements())}
+                        onClick={() => {
+                            ctxMain.setActiveSection(props.attrs.goto_section)
+                        }}
                     >
-                        {props.attrs.text}
+                        {props.attrs.label}
                     </button>
                 </div>
             </section>
@@ -337,18 +350,22 @@ export function ElementRender(props) {
     switch (e) {
         case "Section":
             return <Section attrs={props.attrs}/>
+        case "Group":
+            return <Group attrs={props.attrs}/>
+
         case "Header":
             return <Header attrs={props.attrs}/>
         case "Text":
             return <Text attrs={props.attrs}/>
-        case "InputGroup":
-            return <InputGroup attrs={props.attrs}/>
-        case "InlineInputGroup":
-            return <InlineInputGroup attrs={props.attrs}/>
+
         case "InputText":
             return <InputText attrs={props.attrs}/>
-        case "ButtonToSection":
-            return <ButtonToSection attrs={props.attrs}/>
+        case "InputNumber":
+            return <InputNumber attrs={props.attrs}/>
+
+        case "ButtonGotoSection":
+            return <ButtonGotoSection attrs={props.attrs}/>
+
         default:
             return <p>Element not found</p>
     }
