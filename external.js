@@ -91,6 +91,13 @@ export const fArray = [
         "text": "Header text"
     },
     {
+        "element": "Header",
+        "id": 12,
+        "parent": 1,
+        "order": 3,
+        "text": "Header text 2"
+    },
+    {
         "element": "Text",
         "id": 4,
         "parent": 1,
@@ -116,7 +123,7 @@ export const fArray = [
         "element": "Group",
         "id": 7,
         "parent": 5,
-        "order": 1,
+        "order": 2,
         "label": "Inline Group",
         "style": "row",
     },

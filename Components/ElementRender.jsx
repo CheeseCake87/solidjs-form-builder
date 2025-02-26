@@ -6,14 +6,42 @@ import Down from "./Icons/Down";
 import Edit from "./Icons/Edit";
 import Add from "./Icons/Add";
 import Parent from "./Icons/Parent";
+import Id from "./Icons/Id";
+import Order from "./Icons/Order";
+import ChildElements from "./Icons/ChildElements";
 
 function ElementMenu(props) {
     const ctxMain = useContext(ContextMain)
 
     return <div className={'flex gap-1 pb-4 w-full'}>
 
-        <span className={'fb-icon-no-click text-xs flex align-middle gap-1'}>
-            <small>[{props.attrs.id}]</small> {props.element}
+        <span className={'fb-icon-no-click text-xs font-bold flex align-middle gap-2'}>
+            <Id size={14}/>
+            {props.attrs.id}
+        </span>
+
+        {/*{console.log(props.attrs)}*/}
+
+        <Show when={props.attrs._childElementCount > 0}>
+
+            <span className={'fb-icon-no-click text-xs font-bold flex align-middle gap-2'}>
+                <ChildElements size={14}/>
+                {props.attrs._childElementCount}
+            </span>
+
+        </Show>
+
+        <Show when={props.attrs.element !== 'Section'}>
+
+        <span className={'fb-icon-no-click text-xs font-bold flex align-middle gap-2'}>
+            <Order size={14}/>
+            {props.attrs.order}
+        </span>
+
+        </Show>
+
+        <span className={'fb-icon-no-click text-xs flex align-middle gap-2'}>
+            {props.element}
         </span>
 
         {/* Edit */}
@@ -50,7 +78,11 @@ function ElementMenu(props) {
             {/* Move Down */}
 
             <span
-                className={'fb-icon'}
+                className={
+                    props.attrs.order >= ctxMain.elements()[props.attrs.parent]._childElementCount
+                        ? 'fb-icon-disabled'
+                        : 'fb-icon'
+                }
                 onClick={() => ctxMain.switchOrder(props.attrs.id, 'down')}
             ><Down size={14}/></span>
 

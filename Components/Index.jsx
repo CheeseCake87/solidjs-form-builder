@@ -15,19 +15,25 @@ export default function Index() {
 
             <div className={'fb-menu'}>
 
-                <button
-                    className={'fb-button fb-button-confirm w-full'}
-                    onClick={() => ctxMain.setBuilding(false)}
-                >
-                    View Mode
-                </button>
 
-                <button
-                    className={'fb-button fb-button-confirm w-full'}
-                    onClick={() => ctxMain.setBuilding(true)}
-                >
-                    Build Mode
-                </button>
+                <Show when={ctxMain.building()}>
+                    <button
+                        className={'fb-button fb-button-confirm w-full'}
+                        onClick={() => ctxMain.setBuilding(false)}
+                    >
+                        View Mode
+                    </button>
+                </Show>
+
+
+                <Show when={!ctxMain.building()}>
+                    <button
+                        className={'fb-button fb-button-confirm w-full'}
+                        onClick={() => ctxMain.setBuilding(true)}
+                    >
+                        Build Mode
+                    </button>
+                </Show>
 
                 <hr className={'my-2 py-2'}/>
 
