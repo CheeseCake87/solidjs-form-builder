@@ -40,6 +40,10 @@
     border-color: var(--input-border-hover);
 }
 
+.fb-input:required {
+    @apply block px-4 py-2 border
+}
+
 .fb-button {
     @apply rounded-md justify-center
     inline-flex gap-1 px-5 py-3 no-underline

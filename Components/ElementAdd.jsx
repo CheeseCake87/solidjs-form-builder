@@ -16,6 +16,7 @@ export function ElementAdd() {
                     </p>
                 </div>
                 <div className={'flex flex-col gap-1 w-full'}>
+                    {/* Loop over element library */}
                     <For each={Object.entries(ctxMain.elementLib())}>{(element) =>
                         <button
                             className={'fb-button fb-button-confirm'}

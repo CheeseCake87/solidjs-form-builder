@@ -20,8 +20,6 @@ function ElementMenu(props) {
             {props.attrs.id}
         </span>
 
-        {/*{console.log(props.attrs)}*/}
-
         <Show when={props.attrs._childElementCount > 0}>
 
             <span className={'fb-icon-no-click text-xs font-bold flex align-middle gap-2'}>
@@ -35,7 +33,7 @@ function ElementMenu(props) {
 
         <span className={'fb-icon-no-click text-xs font-bold flex align-middle gap-2'}>
             <Order size={14}/>
-            {props.attrs.order}
+            {ctxMain.elements()[props.attrs.id].order}
         </span>
 
         </Show>
@@ -54,21 +52,14 @@ function ElementMenu(props) {
             }}
         ><Edit size={14}/></span>
 
-        {/* Move Parent */}
-
-        {/*<span*/}
-        {/*    className={'fb-icon'}*/}
-        {/*    onClick={() => ctxMain.switchOrder(props.attrs.id, 'parent')}*/}
-        {/*><Parent size={14}/></span>*/}
-
         <Show when={props.attrs.element !== 'Section'}>
 
             {/* Move Up */}
 
             <span
-                className={props.attrs.order < 2 ? 'fb-icon-disabled' : 'fb-icon'}
+                className={ctxMain.elements()[props.attrs.id].order < 2 ? 'fb-icon-disabled' : 'fb-icon'}
                 onClick={() => {
-                    if (props.attrs.order < 2) {
+                    if (ctxMain.elements()[props.attrs.id].order < 2) {
                         return null
                     }
                     ctxMain.switchOrder(props.attrs.id, 'up')
@@ -79,7 +70,7 @@ function ElementMenu(props) {
 
             <span
                 className={
-                    props.attrs.order >= ctxMain.elements()[props.attrs.parent]._childElementCount
+                    ctxMain.elements()[props.attrs.id].order >= ctxMain.elements()[props.attrs.parent]._childElementCount
                         ? 'fb-icon-disabled'
                         : 'fb-icon'
                 }
@@ -278,6 +269,8 @@ export function InputText(props) {
 
     const ctxMain = useContext(ContextMain)
 
+    console.log(props.attrs)
+
     return (
         <Show when={ctxMain.building()} fallback={
             <div className={'fb-input-group'}>
@@ -293,7 +286,9 @@ export function InputText(props) {
                            props.attrs.value
                                ? props.attrs.value
                                : ''
-                       }/>
+                       }
+                       required={props.attrs.required}
+                />
             </div>
         }>
             <section className={'fb-input-building'}>
@@ -334,6 +329,7 @@ export function InputNumber(props) {
             <div className={'fb-input-group'}>
                 <label className={'fb-label'} for={props.attrs.id}>{props.attrs.label}</label>
                 <input className={'fb-input'}
+                       required={props.attrs.required}
                        type="number"
                        id={props.attrs.id}
                        name={props.attrs.id}
@@ -344,7 +340,8 @@ export function InputNumber(props) {
                            props.attrs.value
                                ? props.attrs.value
                                : ''
-                       }/>
+                       }
+                />
             </div>
         }>
             <section className={'fb-input-building'}>

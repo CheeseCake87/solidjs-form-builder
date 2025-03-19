@@ -22,13 +22,18 @@ export function MainContextProvider() {
     const [activeSection, setActiveSection] = createSignal(null)
 
     const [elementLib, _] = createSignal({
-        "Section": {
-            "element": "Section",
-            "id": null,
-            "parent": null,
-            "order": null,
-            "label": "Section",
-        },
+
+        // Section was removed as adding a section can be done
+        // in the top bar.
+        //
+        // "Section": {
+        //     "element": "Section",
+        //     "id": null,
+        //     "parent": null,
+        //     "order": null,
+        //     "label": "Section",
+        // },
+
         "Group": {
             "element": "Group",
             "id": null,
@@ -46,8 +51,8 @@ export function MainContextProvider() {
             "type": "text",
             "value": "",
             "default_value": "",
+            "required": false,
             "match_field": [
-                "source_field",
                 "first_name",
                 "last_name",
             ]
@@ -61,8 +66,9 @@ export function MainContextProvider() {
             "type": "number",
             "value": "",
             "default_value": "",
+            "required": false,
             "match_field": [
-                "number_of_dependents",
+                "total_cats",
             ]
         },
         "Button Goto Section": {
@@ -73,6 +79,7 @@ export function MainContextProvider() {
             "label": "Button",
             "section": null
         }
+
     })
     const [elements, setElements] = createSignal()
 
@@ -105,8 +112,6 @@ export function MainContextProvider() {
         copyElements[id] = copyElement
         setElements(copyElements)
     }
-
-    // TODO: fix the visual feedback on the buttons to switch order of elements
 
     function switchOrder(id, direction) {
         let copyAllElements = {...elements()}
@@ -156,7 +161,6 @@ export function MainContextProvider() {
                 }
             }
         }
-
 
     }
 
