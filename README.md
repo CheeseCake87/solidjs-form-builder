@@ -1,3 +1,5 @@
+⚠️ Warning this project is currently broken due to a SolidJS version upgrade.
+
 This repo contains a work in progress implementation
 of a form builder in SolidJS.
 
