@@ -2,7 +2,7 @@
 import {render} from 'solid-js/web'
 import {Route, Router} from '@solidjs/router'
 import {MainContextProvider} from "./ContextManagers/ContextMain";
-import Index from "./Components";
+import Start from "./Components/Start.jsx";
 
 const root = document.getElementById('root')
 
@@ -12,13 +12,9 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 render(() => (
-        <Router>
-            <Route path="" component={MainContextProvider}>
-
-                <Route path="/" component={Index}/>
-
-            </Route>
-        </Router>
-    ),
-    root
-)
+    <Router>
+        <Route path="" component={MainContextProvider}>
+            <Route path="/" component={Start}/>
+        </Route>
+    </Router>
+), root)

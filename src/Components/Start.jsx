@@ -1,11 +1,11 @@
 import {ElementProcessor} from "./ElementProcessor";
-import {ContextMain} from "../ContextManagers/ContextMain";
 import {Show, useContext} from "solid-js";
 import {ElementEdit} from "./ElementEdit";
 import {ElementAdd} from "./ElementAdd";
+import {ContextMain} from "../ContextManagers/ContextMain.jsx";
 
 
-export default function Index() {
+export default function Start() {
 
     const ctxMain = useContext(ContextMain)
 
