@@ -1,11 +1,9 @@
 import {createEffect, createSignal, For, Show, useContext} from "solid-js";
 import {ContextMain} from "../ContextManagers/ContextMain";
-import Delete from "./Icons/Delete";
 import Up from "./Icons/Up";
 import Down from "./Icons/Down";
 import Edit from "./Icons/Edit";
 import Add from "./Icons/Add";
-import Parent from "./Icons/Parent";
 import Id from "./Icons/Id";
 import Order from "./Icons/Order";
 import ChildElements from "./Icons/ChildElements";
