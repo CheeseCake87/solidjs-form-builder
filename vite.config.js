@@ -7,7 +7,11 @@ export default defineConfig({
         solidPlugin(),
         tailwindcss(),
     ],
-    root: '.',
+    root: 'src',
+    server: {
+        host: '127.0.0.1',
+        port: 5111
+    },
     build: {
         target: 'esnext',
         outDir: '../dist',
