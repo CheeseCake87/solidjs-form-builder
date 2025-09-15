@@ -1,7 +1,6 @@
 import {ElementProcessor} from "./ElementProcessor";
 import {ContextMain} from "../ContextManagers/ContextMain";
 import {Show, useContext} from "solid-js";
-import External from "./Icons/External";
 import {ElementEdit} from "./ElementEdit";
 import {ElementAdd} from "./ElementAdd";
 

@@ -1,5 +1,5 @@
 import {createContext, createEffect, createSignal, onMount, Show} from 'solid-js'
-import {Outlet, useNavigate} from '@solidjs/router'
+import {useNavigate} from '@solidjs/router'
 import {fArray} from "../external";
 
 
@@ -297,41 +297,43 @@ export function MainContextProvider() {
         )
     })
 
+    const pushCtx = {
+        parentElements: parentElements,
+        refresh: refresh,
+        setRefresh: setRefresh,
+        navigator: navigator,
+        elementLib: elementLib,
+        addElementTo: addElementTo,
+        setAddElementTo: setAddElementTo,
+        editElement: editElement,
+        setEditElement: setEditElement,
+        elements: elements,
+        setElements: setElements,
+        sections: sections,
+        setSections: setSections,
+        building: building,
+        setBuilding: setBuilding,
+        activeSection: activeSection,
+        setActiveSection: setActiveSection,
+        deleteElement: deleteElement,
+        switchOrder: switchOrder,
+        updateValue: updateValue,
+        updateAttribute: updateAttribute,
+        updateElement: updateElement,
+        addSection: addSection,
+        addElement: addElement,
+        countChildElements: countChildElements,
+    }
+
     return (
-        <ContextMain.Provider value={
-            {
-                parentElements: parentElements,
-                refresh: refresh,
-                setRefresh: setRefresh,
-                navigator: navigator,
-                elementLib: elementLib,
-                addElementTo: addElementTo,
-                setAddElementTo: setAddElementTo,
-                editElement: editElement,
-                setEditElement: setEditElement,
-                elements: elements,
-                setElements: setElements,
-                sections: sections,
-                setSections: setSections,
-                building: building,
-                setBuilding: setBuilding,
-                activeSection: activeSection,
-                setActiveSection: setActiveSection,
-                deleteElement: deleteElement,
-                switchOrder: switchOrder,
-                updateValue: updateValue,
-                updateAttribute: updateAttribute,
-                updateElement: updateElement,
-                addSection: addSection,
-                addElement: addElement,
-                countChildElements: countChildElements,
-            }
-        }>
+        <ContextMain.Provider value={pushCtx}>
             <div className={'main-container'}>
                 <div className={'main-content'}>
-                    <Show when={elements()} fallback={'Loading'}>
-                        <Outlet/>
-                    </Show>
+                    <Show
+                        when={elements()}
+                        children={props.children}
+                        fallback={'Loading'}
+                    />
                 </div>
             </div>
         </ContextMain.Provider>

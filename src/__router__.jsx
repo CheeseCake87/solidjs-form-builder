@@ -1,6 +1,6 @@
 /* @refresh reload */
 import {render} from 'solid-js/web'
-import {Route, Router, Routes} from '@solidjs/router'
+import {Route, Router} from '@solidjs/router'
 import {MainContextProvider} from "./ContextManagers/ContextMain";
 import Index from "./Components";
 
@@ -13,13 +13,11 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(() => (
         <Router>
-            <Routes>
-                <Route path="" component={MainContextProvider}>
+            <Route path="" component={MainContextProvider}>
 
-                    <Route path="/" component={Index}/>
+                <Route path="/" component={Index}/>
 
-                </Route>
-            </Routes>
+            </Route>
         </Router>
     ),
     root
